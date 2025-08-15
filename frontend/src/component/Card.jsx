@@ -1,23 +1,20 @@
+// Card.jsx
 import React, { useEffect, useRef, useState } from "react";
 import "./card.css";
 
 const Card = () => {
-  const [animate, setAnimate] = useState([]);
+  const cardCount = 3;
   const cardsRef = useRef([]);
-
-  const cardCount = 3; // total cards
+  const [animate, setAnimate] = useState(false); // single boolean for all cards
 
   useEffect(() => {
     cardsRef.current = cardsRef.current.slice(0, cardCount);
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setAnimate((prev) => {
-              const newArr = [...prev];
-              newArr[index] = true;
-              return newArr;
-            });
+            setAnimate(true); // animate all cards at once
           }
         });
       },
@@ -29,7 +26,7 @@ const Card = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [cardCount]);
 
   return (
     <div className="container py-5">
@@ -37,15 +34,14 @@ const Card = () => {
         {[1, 2, 3].map((_, index) => (
           <div
             key={index}
-            className={`col-md-4`}
+            className="col-12 col-sm-6 col-md-4"
             ref={(el) => (cardsRef.current[index] = el)}
           >
             <div
               className={`custom-card text-start p-4 ${
-                animate[index] ? "animate-in" : ""
+                animate ? "animate-in" : ""
               }`}
             >
-              {/* Icons */}
               <i
                 className={`${
                   index === 0
@@ -55,7 +51,6 @@ const Card = () => {
                     : "fa-regular fa-rectangle-list"
                 } icon-style mt-5`}
               ></i>
-
               <h5 className="text-secondary fw-bold">
                 {index === 0
                   ? "Wave Design"
