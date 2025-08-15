@@ -1,0 +1,20 @@
+.navbar .nav-link.menu:hover {
+  color: green ;
+}
+
+.navbar .nav-link.menu.active {
+  color: green ;
+  font-weight: bold;
+}
+/* Navbar shadow */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle bottom shadow */
+}
+
+/* Logo styling */
+.navbar-brand h1 {
+  font-size: 1.8rem; /* slightly larger than fs-4 */
+  font-weight: 700;
+  color: #6c757d; /* same as text-secondary */
+  margin: 0;
+}

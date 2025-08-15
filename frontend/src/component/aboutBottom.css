@@ -1,0 +1,22 @@
+/* Scroll animation */
+.about-bottom-container {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.about-bottom-container.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: spacing and styling */
+.about-bottom-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.about-bottom-container p {
+  margin-top: 10px;
+  font-size: 1rem;
+}

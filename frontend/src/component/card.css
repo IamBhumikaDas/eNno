@@ -1,0 +1,35 @@
+/* Card icons */
+.icon-style {
+  font-size: 48px; /* Bigger icon */
+  color: rgb(4, 147, 97); /* Green color */
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Card styling and hover */
+.custom-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(50px); /* Start from bottom */
+}
+
+.custom-card.animate-in {
+  opacity: 1;
+  transform: translateY(0); /* Animate to original position */
+}
+
+.custom-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Heading hover color change */
+.custom-card h5 {
+  transition: color 0.3s ease;
+}
+
+.custom-card:hover h5 {
+  color: rgb(4, 147, 97);
+}
